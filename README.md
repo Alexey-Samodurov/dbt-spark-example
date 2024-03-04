@@ -3,6 +3,7 @@
 - Make sure that you have docker in your system
 - Run following commands
   - `docker-compose up -d --build`
+  - `pip install -r requirements.txt`
   - `dbt debug --profiles-dir .`
   - `dbt run --profiles-dir .`
 - The Spark UI should be available at http://localhost:4040/sqlserver/
