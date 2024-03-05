@@ -10,7 +10,7 @@ services:
       - dbt-hive-metastore
     command: >
       --class org.apache.spark.sql.hive.thriftserver.HiveThriftServer2
-      --name Thrift JDBC/ODBC Server
+      --name Spark Server
     volumes:
       - ./.spark-warehouse/:/spark-warehouse/
       - ./docker/hive-site.xml:/usr/spark/conf/hive-site.xml
