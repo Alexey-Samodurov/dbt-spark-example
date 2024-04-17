@@ -1,8 +1,12 @@
-{{
-    config(
-        materialized='incremental',
-        file_format='hudi',
-        unique_key='id'
+{{ config(
+    materialized='incremental',
+    file_format='hudi',
+    location_root='s3a://result-parquet/default',
+    options={
+        'type': 'cow',
+        'precombineKey': 'ts'
+        },
+    unique_key='id'
     )
 }}
 
@@ -14,6 +18,7 @@ with source_data as (
 
     )
 
-select *
+select
+    *
 from source_data
 where id is not null

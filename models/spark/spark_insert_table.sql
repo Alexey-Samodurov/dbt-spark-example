@@ -2,6 +2,7 @@
     config(
         materialized='incremental',
         file_format='parquet',
+        location_root='s3a://result-parquet/default',
         unique_key='id'
     )
 }}

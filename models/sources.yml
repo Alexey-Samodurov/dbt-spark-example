@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: hudi
+    schema: default
+    tables:
+      - name: hudi_insert_overwrite_table
+      - name: hudi_insert_table
+
+  - name: spark
+    schema: default
+    tables:
+      - name: spark_insert_table
+      - name: spark_insert_overwrite_table
