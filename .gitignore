@@ -16,8 +16,10 @@ sources.json
 __pycache__/
 *.py[co]
 .venv/
+venv/
 .user.yml
 .hive-metastore
 .spark-warehouse
 .idea
 *.log
+.vscode/
