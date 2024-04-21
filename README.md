@@ -1,17 +1,20 @@
 # How to Run
 
-- Make sure that you have docker in your system
-- Run following commands
-  - `docker-compose up -d --build`
+- Make sure that you have docker in your system and S3-like bucket
+- Add environment variables to your system:
+  - `AWS_ACCESS_KEY_ID`
+  - `AWS_SECRET_KEY`
+  - `AWS_ENDPOINT`
+- Complete the `.env` in `docker` directory
+- Run following commands:
+  - `cd docker`
+  - `docker-compose up -d`
+  - `cd ..`
   - `pip install -r requirements.txt`
-  - `dbt debug --profiles-dir .`
   - `dbt run --profiles-dir .`
-- The Spark UI should be available at http://localhost:4040/sqlserver/
-- The endpoint for SQL-based testing is at http://localhost:10000 and can be referenced with the Hive or Spark JDBC drivers using connection string jdbc:hive2://localhost:10000 and default credentials dbt:dbt
-- Note that the Hive metastore data is persisted under ./.hive-metastore/, and the Spark-produced data under ./.spark-warehouse/. To completely reset you environment run the following:
-```
-docker-compose down
-rm -rf ./.hive-metastore/
-rm -rf ./.spark-warehouse/
-```
+- Check your S3 bucket
+- Check your hive metastore on `thrift://localhost:9083`. You can connect to HM with PyCharm [BigDataTool](https://www.jetbrains.com/help/pycharm/big-data-tools-support.html) for example. 
+- At first `dbr run` we have 1 failed model, it's ok because hive metastore don't have information about models with dbt sources
+- At second `dbt run` we have all models with completed status
+- Clean `docker-compose down --rmi all`
 
