@@ -2,7 +2,6 @@
     materialized='incremental',
     file_format='parquet',
     incremental_strategy='insert_overwrite',
-    location_root='s3a://result-parquet/default',
     unique_key='id'
    )
 }}

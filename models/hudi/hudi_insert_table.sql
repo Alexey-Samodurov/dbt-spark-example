@@ -1,7 +1,6 @@
 {{ config(
     materialized='incremental',
     file_format='hudi',
-    location_root='s3a://result-parquet/default',
     options={
         'type': 'cow',
         'precombineKey': 'ts'

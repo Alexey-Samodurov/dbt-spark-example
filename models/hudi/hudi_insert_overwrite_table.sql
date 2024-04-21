@@ -2,7 +2,6 @@
     materialized='incremental',
     file_format='hudi',
     incremental_strategy='insert_overwrite',
-    location_root='s3a://result-parquet/default',
     options={
         'type': 'cow',
         'precombineKey': 'ts'

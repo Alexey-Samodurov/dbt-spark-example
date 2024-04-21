@@ -2,7 +2,6 @@
     config(
         materialized='incremental',
         file_format='parquet',
-        location_root='s3a://result-parquet/default',
         unique_key='id'
     )
 }}
@@ -12,7 +11,6 @@ with source_data as (
     select format_number(rand()*1000, 0) as id
     union all
     select null as id
-
     )
 
 select *
