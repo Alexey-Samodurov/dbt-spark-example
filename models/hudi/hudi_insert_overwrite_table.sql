@@ -2,6 +2,7 @@
     materialized='incremental',
     file_format='hudi',
     incremental_strategy='insert_overwrite',
+    location_root='s3a://hudi/',
     options={
         'type': 'cow',
         'precombineKey': 'ts'

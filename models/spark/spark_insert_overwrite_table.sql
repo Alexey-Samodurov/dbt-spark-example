@@ -2,6 +2,7 @@
     materialized='incremental',
     file_format='parquet',
     incremental_strategy='insert_overwrite',
+    location_root='s3a://hudi/',
     unique_key='id'
    )
 }}

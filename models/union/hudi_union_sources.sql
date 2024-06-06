@@ -1,6 +1,7 @@
 {{ config(
     materialized='table',
     file_format='hudi',
+    location_root='s3a://hudi/',
     options={
         'type': 'cow',
         },
