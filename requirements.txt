@@ -1,4 +1,5 @@
-dbt-spark==1.7.1
-dbt-spark[session]==1.7.1
-pyspark==3.4.2
-pyspark[sql]==3.4.2
+dbt-core==1.8.0
+dbt-spark==1.8.0
+dbt-spark[session]==1.8.0
+pyspark==3.4.3
+pyspark[sql]==3.4.3
