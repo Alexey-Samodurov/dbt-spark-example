@@ -10,6 +10,8 @@ Remember to restart your system after installing Docker.
   - `dbt run --exclude union.hudi_union_sources --profiles-dir .` It will be created spark and hudi parquet files with simple and increment data
   - `dbt run --select union.hudi_union_sources --profiles-dir .` It will be created hudi tables from sources on prev step
 - Check S3 bucket on `http://127.0.0.1:9001/browser`. You can connect to MinIO with PyCharm [BigDataTool](https://www.jetbrains.com/help/pycharm/big-data-tools-support.html) for example.
+  - user - `minio`
+  - password - `minio-minio`
 - Check your hive metastore on `thrift://localhost:9083`. You can connect to HMS with PyCharm [BigDataTool](https://www.jetbrains.com/help/pycharm/big-data-tools-support.html) for example.
 - Clean `docker-compose down --rmi all`
 
