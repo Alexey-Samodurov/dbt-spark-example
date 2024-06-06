@@ -1,20 +1,15 @@
 # How to Run
 
-- Make sure that you have docker in your system and S3-like bucket
-- Add environment variables to your system:
-  - `AWS_ACCESS_KEY_ID`
-  - `AWS_SECRET_KEY`
-  - `AWS_ENDPOINT`
-- Complete the `.env` in `docker` directory
+- Make sure that Docker is installed on your system. If not, you can download and install it from the official Docker website. Use this link to download Docker Desktop for your operating system.
+Remember to restart your system after installing Docker.
 - Run following commands:
   - `cd docker`
   - `docker-compose up -d`
   - `cd ..`
   - `pip install -r requirements.txt`
-  - `dbt run --profiles-dir .`
-- Check your S3 bucket
-- Check your hive metastore on `thrift://localhost:9083`. You can connect to HM with PyCharm [BigDataTool](https://www.jetbrains.com/help/pycharm/big-data-tools-support.html) for example. 
-- At first `dbr run` we have 1 failed model, it's ok because hive metastore don't have information about models with dbt sources
-- At second `dbt run` we have all models with completed status
+  - `dbt run --exclude union.hudi_union_sources --profiles-dir .` It will be created spark and hudi parquet files with simple and increment data
+  - `dbt run --select union.hudi_union_sources --profiles-dir .` It will be created hudi tables from sources on prev step
+- Check S3 bucket on `http://127.0.0.1:9001/browser`. You can connect to HM with PyCharm [BigDataTool](https://www.jetbrains.com/help/pycharm/big-data-tools-support.html) for example.
+- Check your hive metastore on `thrift://localhost:9083`. You can connect to HM with PyCharm [BigDataTool](https://www.jetbrains.com/help/pycharm/big-data-tools-support.html) for example.
 - Clean `docker-compose down --rmi all`
 
