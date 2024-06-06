@@ -52,6 +52,7 @@ RUN \
     rm -rf /var/lib/apt/lists/*
 
 COPY run.sh run.sh
+RUN chmod 755 run.sh
 
 CMD [ "./run.sh" ]
 HEALTHCHECK CMD [ "sh", "-c", "netstat -ln | grep 9083" ]
