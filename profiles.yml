@@ -8,15 +8,16 @@ spark:
       schema: default
       threads: 4
       server_side_parameters:
-        "spark.driver.memory": "4g"
-        "spark.executor.memory": "2g"
-        "spark.executor.cores": "2"
-        "spark.hadoop.fs.s3a.access.key": "{{ env_var('AWS_ACCESS_KEY_ID') }}"
-        "spark.hadoop.fs.s3a.secret.key": "{{ env_var('AWS_SECRET_KEY') }}"
-        "spark.hadoop.fs.s3a.endpoint": "{{ env_var('AWS_ENDPOINT') }}"
+        "spark.driver.memory": "1g"
+        "spark.executor.memory": "4g"
+        "spark.executor.cores": "1"
+        "spark.hadoop.fs.s3a.access.key": "{{ env_var('AWS_ACCESS_KEY_ID', 'minio') }}"
+        "spark.hadoop.fs.s3a.secret.key": "{{ env_var('AWS_SECRET_KEY', 'minio-minio') }}"
+        "spark.hadoop.fs.s3a.endpoint": "{{ env_var('AWS_ENDPOINT', 'http://localhost:9000') }}"
+        "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem"
+        "spark.hadoop.fs.s3a.path.style.access": "true"
         "spark.jars.packages": "org.apache.hudi:hudi-spark3-bundle_2.12:0.14.1,org.apache.hadoop:hadoop-aws:3.3.4"
         "spark.serializer": "org.apache.spark.serializer.KryoSerializer"
-        "spark.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem"
         "spark.sql.extensions": "org.apache.spark.sql.hudi.HoodieSparkSessionExtension"
         "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.hudi.catalog.HoodieCatalog"
         "spark.sql.legacy.allowNonEmptyLocationInCTAS" : "true"
